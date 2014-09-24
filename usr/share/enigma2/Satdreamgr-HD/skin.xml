@@ -578,8 +578,8 @@
     <convert type="ServiceInfo">HasHBBTV</convert>
     <convert type="ConditionalShowHide" />
   </widget>
-  <ePixmap pixmap="Satdreamgr-HD/infobar/ico_format_4_3.png" position="1200,515" size="33,21" zPosition="2" alphatest="blend" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_format_16_9.png" position="1200,515" size="33,21" zPosition="1" alphatest="blend">
+  <ePixmap pixmap="Satdreamgr-HD/infobar/ico_format_4_3.png" position="1200,515" size="33,21" zPosition="1" alphatest="blend" />
+  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_format_16_9.png" position="1200,515" size="33,21" zPosition="2" alphatest="blend">
     <convert type="ServiceInfo">IsWidescreen</convert>
     <convert type="ConditionalShowHide" />
   </widget>
@@ -775,8 +775,8 @@
     <convert type="ServiceInfo">HasHBBTV</convert>
     <convert type="ConditionalShowHide" />
   </widget>
-  <ePixmap pixmap="Satdreamgr-HD/infobar/ico_format_4_3.png" position="1200,515" size="33,21" zPosition="2" alphatest="blend" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_format_16_9.png" position="1200,515" size="33,21" zPosition="1" alphatest="blend">
+  <ePixmap pixmap="Satdreamgr-HD/infobar/ico_format_4_3.png" position="1200,515" size="33,21" zPosition="1" alphatest="blend" />
+  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_format_16_9.png" position="1200,515" size="33,21" zPosition="2" alphatest="blend">
     <convert type="ServiceInfo">IsWidescreen</convert>
     <convert type="ConditionalShowHide" />
   </widget>
