@@ -16,6 +16,7 @@
     <color name="black" value="#00000000" />
     <color name="blue" value="#00879ce1" />
     <color name="bluetransparent" value="#08001e4b" />
+    <color name="bluewin" value="#00000025" />
     <color name="cbblue" value="#00ffaa00" />
     <color name="csblue" value="#002ddde8" />
     <color name="dark" value="#00242424" />
@@ -94,7 +95,7 @@
     <color name="LabelForeground" color="foreground" />
     <color name="ListboxBackground" color="transpBlack" />
     <color name="ListboxForeground" color="foreground" />
-    <color name="ListboxSelectedBackground" color="un35000000" />
+    <color name="ListboxSelectedBackground" color="black" />
     <color name="ListboxSelectedForeground" color="white" />
     <color name="ListboxMarkedBackground" color="un253658a4" />
     <color name="ListboxMarkedForeground" color="unff0000" />
@@ -331,28 +332,24 @@
   </screen>
   <!-- Templates -->
   <screen name="TopTemplate" position="0,0" size="1280,720" transparent="1" backgroundColor="transparent" flags="wfNoBorder">
-  <widget source="Title" render="Label" position="75,30" size="850,55" backgroundColor="secondBG" transparent="1" zPosition="1" font="Regular;24" valign="center" halign="left" />
-  
-  <widget source="global.CurrentTime" render="Label" position="1031,55" size="121,36" backgroundColor="secondBG" transparent="1" zPosition="1" font="LCD; 35" halign="right" valign="center">
-    <convert type="ClockToText">Format:%-H:%M</convert>
-  </widget>
-  <widget source="global.CurrentTime" render="Label" position="1155,55" zPosition="1" size="28,22" font="LCD; 20" halign="left" valign="top" transparent="1" backgroundColor="red" foregroundColor="unff0000">
-    <convert type="ClockToText">Format::%S</convert>
-  </widget>
-  <widget source="global.CurrentTime" render="Label" position="973,28" size="263,28" backgroundColor="secondBG" transparent="1" zPosition="1" font="Regular; 20" valign="center" halign="center">
-  <convert type="ClockToText">Format:%a. %d.%b. %Y</convert>
-</widget>
-</screen>
+    <widget source="Title" render="Label" position="75,30" size="850,55" backgroundColor="secondBG" transparent="1" zPosition="1" font="Regular;24" valign="center" halign="left" />
+    <widget source="global.CurrentTime" render="Label" position="1031,55" size="121,36" backgroundColor="secondBG" transparent="1" zPosition="1" font="LCD; 35" halign="right" valign="center">
+      <convert type="ClockToText">Format:%-H:%M</convert>
+    </widget>
+    <widget source="global.CurrentTime" render="Label" position="1155,55" zPosition="1" size="28,22" font="LCD; 20" halign="left" valign="top" transparent="1" backgroundColor="red" foregroundColor="unff0000">
+      <convert type="ClockToText">Format::%S</convert>
+    </widget>
+    <widget source="global.CurrentTime" render="Label" position="973,28" size="263,28" backgroundColor="secondBG" transparent="1" zPosition="1" font="Regular; 20" valign="center" halign="center">
+      <convert type="ClockToText">Format:%a. %d.%b. %Y</convert>
+    </widget>
+  </screen>
   <screen name="SelectionTemplate" position="0,0" size="1280,720" transparent="1" backgroundColor="transparent" flags="wfNoBorder">
-  <panel name="TopTemplate" />
-  <ePixmap pixmap="Satdreamgr-HD/menu.png" position="0,0" size="1280,720" zPosition="-10" transparent="1" />
-
-  <eLabel position="84,107" zPosition="1" size="419,244" backgroundColor="un254f7497" foregroundColor="secondBG" />
-
-<eLabel position="85,108" zPosition="1" size="416,242" backgroundColor="black" />
-
-  <widget backgroundColor="transparent" position="89,112" render="Pig" size="410,235" source="session.VideoPicture" zPosition="2" />
-</screen>
+    <panel name="TopTemplate" />
+    <ePixmap pixmap="Satdreamgr-HD/menu.png" position="0,0" size="1280,720" zPosition="-10" transparent="1" />
+    <eLabel position="84,107" zPosition="1" size="419,244" backgroundColor="un254f7497" foregroundColor="secondBG" />
+    <eLabel position="85,108" zPosition="1" size="416,242" backgroundColor="black" />
+    <widget backgroundColor="transparent" position="89,112" render="Pig" size="410,235" source="session.VideoPicture" zPosition="2" />
+  </screen>
   <screen name="PigTemplate" flags="wfNoBorder" position="0,0" size="1280,720" transparent="1" backgroundColor="transparent">
     <panel name="SelectionTemplate" />
     <ePixmap pixmap="Satdreamgr-HD/logos/satdreamgr.png" position="177,574" size="200,43" alphatest="blend" transparent="0" zPosition="5" />
@@ -439,80 +436,79 @@
   <!-- InfoBars -->
   <!-- Infobar Template -->
   <screen name="InfoBar" position="0,0" size="1280,720" backgroundColor="transparent" flags="wfNoBorder">
-  <ePixmap pixmap="Satdreamgr-HD/haut.png" position="23,20" size="1232,89" zPosition="-1" alphatest="off" transparent="1" />
-  <ePixmap pixmap="Satdreamgr-HD/border/smallshadowline.png" position="50,61" size="1180,1" zPosition="1" alphatest="blend" />
-  <ePixmap pixmap="Satdreamgr-HD/border/smallshadowline.png" position="50,543" size="1180,1" zPosition="1" alphatest="blend" />
-  <ePixmap pixmap="Satdreamgr-HD/border/smallshadowline.png" position="50,632" size="1180,1" zPosition="1" alphatest="blend" />
-  <ePixmap pixmap="Satdreamgr-HD/infobar.png" position="center,497" size="1231,220" zPosition="-2" alphatest="off" transparent="1" />
-  <!-- first infobar haut -->
-  <!-- infocam-->
-  <widget source="session.CurrentService" render="Label" position="322,33" size="640,27" transparent="1" zPosition="1" backgroundColor="secondBG" foregroundColor="foreground" font="Regular; 20">
-    <convert type="sdgExtraInfo">CryptoBar</convert>
-  </widget>
-  <widget source="session.CurrentService" render="Label" position="80,33" zPosition="1" size="240,27" font="Regular; 20" transparent="1" backgroundColor="secondBG" foregroundColor="un99dd" halign="left">
-    <convert type="sdgCamd">Camd</convert>
-  </widget>
-  <widget source="session.CurrentService" render="Label" position="80,69" size="882,26" backgroundColor="background" foregroundColor="white" transparent="1" zPosition="1" font="Regular; 20">
-    <convert type="sdgCaidDisplay">Default</convert>
-  </widget>
-  <!-- more test bas-->
-  <widget source="global.CurrentTime" render="Label" position="1031,62" size="121,42" backgroundColor="secondBG" transparent="1" zPosition="1" font="LCD; 35" halign="right" valign="center">
-    <convert type="ClockToText">Format:%-H:%M</convert>
-  </widget>
-  <widget source="global.CurrentTime" render="Label" position="1155,67" zPosition="1" size="28,22" font="LCD; 20" halign="left" valign="top" transparent="1" backgroundColor="background" foregroundColor="unff0000">
-    <convert type="ClockToText">Format::%S</convert>
-  </widget>
-  <widget source="global.CurrentTime" render="Label" position="973,33" size="263,28" backgroundColor="secondBG" transparent="1" zPosition="1" font="Regular; 20" valign="center" halign="center">
-  <convert type="ClockToText">Format:%a. %d.%b. %Y</convert>
-</widget>
-  <widget source="session.CurrentService" render="ChannelNumber" position="70,514" size="165,26" backgroundColor="secondBG" foregroundColor="un99dd" noWrap="1" transparent="1" zPosition="1" font="Regular;24">
-  </widget>
-  <widget source="session.CurrentService" render="Label" position="556,652" size="500,20" backgroundColor="secondBG" font="Regular;18" transparent="1" zPosition="1">
-    <convert type="sdgServiceInfo">SatName</convert>
-  </widget>
-  <widget source="session.CurrentService" render="Label" position="46,666" size="500,20" transparent="1" zPosition="1" backgroundColor="secondBG" font="Regular;18" halign="left">
-    <convert type="sdgExtraInfo">All</convert>
-  </widget>
-
-  <!-- more test bas-->
-  <widget source="session.CurrentService" render="Label" position="240,514" size="709,26" font="Regular;24" backgroundColor="secondBG" foregroundColor="un99dd" zPosition="1" noWrap="1" transparent="1" valign="center" halign="center">
-    <convert type="ServiceName">Name</convert>
-  </widget>
-  <widget source="session.CurrentService" render="Label" position="48,640" size="100,20" transparent="1" zPosition="1" foregroundColor="un1f771f" backgroundColor="secondBG" font="Regular; 18" valign="center" halign="left">
-    <convert type="sdgExtraInfo">VideoCodec</convert>
-  </widget>
-  <!-- picon -->
-  <widget source="session.CurrentService" render="Picon" position="65,558" size="100,60" backgroundColor="secondBG" transparent="1" zPosition="1" alphatest="blend">
-    <convert type="ServiceName">Reference</convert>
-  </widget>
-  <!-- SNR -->
-  <eLabel text="SNR" font="Regular; 18" position="1066,547" size="45,20" halign="left" transparent="1" backgroundColor="secondBG" foregroundColor="un1f771f" valign="top" zPosition="1" />
-  <ePixmap pixmap="Satdreamgr-HD/menu/bar.png" position="1112,549" size="70,20" zPosition="1" alphatest="blend" transparent="1" />
-  <widget source="session.FrontendStatus" render="Progress" position="1113,557" size="65,8" pixmap="Satdreamgr-HD/menu/bar_snr.png" zPosition="2" transparent="1">
-    <convert type="FrontendInfo">SNR</convert>
-  </widget>
-  <widget source="session.FrontendStatus" render="Label" position="1189,547" size="50,20" transparent="1" zPosition="1" backgroundColor="background" foregroundColor="foreground" font="Regular;18" valign="top">
-    <convert type="FrontendInfo">SNRdB</convert>
-  </widget>
-  <eLabel text="SNR" font="Regular; 18" position="1066,577" size="45,20" halign="left" transparent="1" backgroundColor="secondBG" foregroundColor="un1f771f" valign="top" zPosition="1" />
-  <ePixmap pixmap="Satdreamgr-HD/menu/bar.png" position="1111,579" size="70,20" zPosition="1" alphatest="blend" transparent="1" />
-  <widget source="session.FrontendStatus" render="Progress" position="1113,585" size="65,8" pixmap="Satdreamgr-HD/menu/bar_snr.png" zPosition="2" transparent="1">
-    <convert type="FrontendInfo">SNR</convert>
-  </widget>
-  <widget source="session.FrontendStatus" render="Label" position="1189,577" zPosition="1" size="50,20" font="Regular;16" halign="left" valign="top" transparent="1" backgroundColor="background">
-    <convert type="FrontendInfo">SNR</convert>
-  </widget>
-  <!-- AGC -->
-  <eLabel text="AGC" font="Regular; 18" position="1066,602" size="45,20" halign="left" transparent="1" backgroundColor="secondBG" foregroundColor="un1f771f" valign="top" zPosition="1" />
-  <ePixmap pixmap="Satdreamgr-HD/menu/bar.png" position="1112,604" size="70,20" zPosition="1" alphatest="blend" transparent="1" />
-  <widget source="session.FrontendStatus" render="Progress" position="1113,610" size="65,8" pixmap="Satdreamgr-HD/menu/bar_agc.png" zPosition="2" transparent="1">
-    <convert type="FrontendInfo">AGC</convert>
-  </widget>
-  <widget source="session.FrontendStatus" render="Label" position="1189,602" size="50,20" transparent="1" zPosition="1" backgroundColor="background" foregroundColor="foreground" font="Regular;18" valign="top">
-    <convert type="FrontendInfo">AGC</convert>
-  </widget>
-  <!-- BER -->
-  <!--<eLabel text="BER" font="Regular; 18" position="845,665" size="50,30" halign="left" transparent="1" backgroundColor="secondBG" foregroundColor="grey" valign="top" />
+    <ePixmap pixmap="Satdreamgr-HD/haut.png" position="23,20" size="1232,89" zPosition="-1" alphatest="off" transparent="1" />
+    <ePixmap pixmap="Satdreamgr-HD/border/smallshadowline.png" position="50,61" size="1180,1" zPosition="1" alphatest="blend" />
+    <ePixmap pixmap="Satdreamgr-HD/border/smallshadowline.png" position="50,543" size="1180,1" zPosition="1" alphatest="blend" />
+    <ePixmap pixmap="Satdreamgr-HD/border/smallshadowline.png" position="50,632" size="1180,1" zPosition="1" alphatest="blend" />
+    <ePixmap pixmap="Satdreamgr-HD/infobar.png" position="center,497" size="1231,220" zPosition="-2" alphatest="off" transparent="1" />
+    <!-- first infobar haut -->
+    <!-- infocam-->
+    <widget source="session.CurrentService" render="Label" position="322,33" size="640,27" transparent="1" zPosition="1" backgroundColor="secondBG" foregroundColor="foreground" font="Regular; 20">
+      <convert type="sdgExtraInfo">CryptoBar</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="80,33" zPosition="1" size="240,27" font="Regular; 20" transparent="1" backgroundColor="secondBG" foregroundColor="un99dd" halign="left">
+      <convert type="sdgCamd">Camd</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="80,69" size="882,26" backgroundColor="background" foregroundColor="white" transparent="1" zPosition="1" font="Regular; 20">
+      <convert type="sdgCaidDisplay">Default</convert>
+    </widget>
+    <!-- more test bas-->
+    <widget source="global.CurrentTime" render="Label" position="1031,62" size="121,42" backgroundColor="secondBG" transparent="1" zPosition="1" font="LCD; 35" halign="right" valign="center">
+      <convert type="ClockToText">Format:%-H:%M</convert>
+    </widget>
+    <widget source="global.CurrentTime" render="Label" position="1155,67" zPosition="1" size="28,22" font="LCD; 20" halign="left" valign="top" transparent="1" backgroundColor="background" foregroundColor="unff0000">
+      <convert type="ClockToText">Format::%S</convert>
+    </widget>
+    <widget source="global.CurrentTime" render="Label" position="973,33" size="263,28" backgroundColor="secondBG" transparent="1" zPosition="1" font="Regular; 20" valign="center" halign="center">
+      <convert type="ClockToText">Format:%a. %d.%b. %Y</convert>
+    </widget>
+    <widget source="session.CurrentService" render="ChannelNumber" position="70,514" size="165,26" backgroundColor="secondBG" foregroundColor="un99dd" noWrap="1" transparent="1" zPosition="1" font="Regular;24">
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="556,652" size="500,20" backgroundColor="secondBG" font="Regular;18" transparent="1" zPosition="1">
+      <convert type="sdgServiceInfo">SatName</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="46,666" size="500,20" transparent="1" zPosition="1" backgroundColor="secondBG" font="Regular;18" halign="left">
+      <convert type="sdgExtraInfo">All</convert>
+    </widget>
+    <!-- more test bas-->
+    <widget source="session.CurrentService" render="Label" position="240,514" size="709,26" font="Regular;24" backgroundColor="secondBG" foregroundColor="un99dd" zPosition="1" noWrap="1" transparent="1" valign="center" halign="center">
+      <convert type="ServiceName">Name</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="48,640" size="100,20" transparent="1" zPosition="1" foregroundColor="un1f771f" backgroundColor="secondBG" font="Regular; 18" valign="center" halign="left">
+      <convert type="sdgExtraInfo">VideoCodec</convert>
+    </widget>
+    <!-- picon -->
+    <widget source="session.CurrentService" render="Picon" position="65,558" size="100,60" backgroundColor="secondBG" transparent="1" zPosition="1" alphatest="blend">
+      <convert type="ServiceName">Reference</convert>
+    </widget>
+    <!-- SNR -->
+    <eLabel text="SNR" font="Regular; 18" position="1066,547" size="45,20" halign="left" transparent="1" backgroundColor="secondBG" foregroundColor="un1f771f" valign="top" zPosition="1" />
+    <ePixmap pixmap="Satdreamgr-HD/menu/bar.png" position="1112,549" size="70,20" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.FrontendStatus" render="Progress" position="1113,557" size="65,8" pixmap="Satdreamgr-HD/menu/bar_snr.png" zPosition="2" transparent="1">
+      <convert type="FrontendInfo">SNR</convert>
+    </widget>
+    <widget source="session.FrontendStatus" render="Label" position="1189,547" size="50,20" transparent="1" zPosition="1" backgroundColor="background" foregroundColor="foreground" font="Regular;18" valign="top">
+      <convert type="FrontendInfo">SNRdB</convert>
+    </widget>
+    <eLabel text="SNR" font="Regular; 18" position="1066,577" size="45,20" halign="left" transparent="1" backgroundColor="secondBG" foregroundColor="un1f771f" valign="top" zPosition="1" />
+    <ePixmap pixmap="Satdreamgr-HD/menu/bar.png" position="1111,579" size="70,20" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.FrontendStatus" render="Progress" position="1113,585" size="65,8" pixmap="Satdreamgr-HD/menu/bar_snr.png" zPosition="2" transparent="1">
+      <convert type="FrontendInfo">SNR</convert>
+    </widget>
+    <widget source="session.FrontendStatus" render="Label" position="1189,577" zPosition="1" size="50,20" font="Regular;16" halign="left" valign="top" transparent="1" backgroundColor="background">
+      <convert type="FrontendInfo">SNR</convert>
+    </widget>
+    <!-- AGC -->
+    <eLabel text="AGC" font="Regular; 18" position="1066,602" size="45,20" halign="left" transparent="1" backgroundColor="secondBG" foregroundColor="un1f771f" valign="top" zPosition="1" />
+    <ePixmap pixmap="Satdreamgr-HD/menu/bar.png" position="1112,604" size="70,20" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.FrontendStatus" render="Progress" position="1113,610" size="65,8" pixmap="Satdreamgr-HD/menu/bar_agc.png" zPosition="2" transparent="1">
+      <convert type="FrontendInfo">AGC</convert>
+    </widget>
+    <widget source="session.FrontendStatus" render="Label" position="1189,602" size="50,20" transparent="1" zPosition="1" backgroundColor="background" foregroundColor="foreground" font="Regular;18" valign="top">
+      <convert type="FrontendInfo">AGC</convert>
+    </widget>
+    <!-- BER -->
+    <!--<eLabel text="BER" font="Regular; 18" position="845,665" size="50,30" halign="left" transparent="1" backgroundColor="secondBG" foregroundColor="grey" valign="top" />
     <ePixmap pixmap="Satdreamgr-HD/menu/bar.png" position="900,667" size="73,18" zPosition="1" alphatest="blend" />
     <widget source="session.FrontendStatus" render="Progress" position="905,672" size="65,10" pixmap="Satdreamgr-HD/menu/bar_ber.png" zPosition="1">
       <convert type="FrontendInfo">BER</convert>
@@ -520,196 +516,195 @@
     <widget source="session.FrontendStatus" render="Label" position="980,665" size="65,30" transparent="1" zPosition="1" backgroundColor="background" foregroundColor="foreground" font="Regular;18" valign="top">
       <convert type="FrontendInfo">BER</convert>
     </widget>-->
-  <!-- event now -->
-  <widget source="session.Event_Now" render="Label" position="180,548" size="70,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="foreground" font="Regular; 22" halign="left">
-    <convert type="EventTime">StartTime</convert>
-    <convert type="ClockToText">Default</convert>
-  </widget>
-  <widget source="session.Event_Now" render="Label" position="255,548" size="710,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="foreground" noWrap="1" font="Regular; 22" halign="left">
-    <convert type="EventName">Name</convert>
-  </widget>
-  <widget source="session.Event_Now" render="Label" position="955,548" size="105,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="foreground" font="Regular;22" halign="left">
-    <convert type="EventTime">Remaining</convert>
-    <convert type="RemainingToText">InMinutes</convert>
-  </widget>
-  <!-- progress -->
-  <widget source="session.Event_Now" render="Progress" pixmap="Satdreamgr-HD/infobar/progress_bg.png" position="178,582" size="862,6" transparent="1" borderWidth="1" borderColor="grey" zPosition="3">
-    <convert type="EventTime">Progress</convert>
-  </widget>
-  <!-- event nex-->
-  <widget source="session.Event_Next" render="Label" position="180,593" size="70,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="grey" font="Regular; 22" halign="left">
-    <convert type="EventTime">StartTime</convert>
-    <convert type="ClockToText">Default</convert>
-  </widget>
-  <widget source="session.Event_Next" render="Label" position="255,593" size="710,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="grey" noWrap="1" font="Regular; 22" halign="left">
-    <convert type="EventName">Name</convert>
-  </widget>
-  <widget source="session.Event_Next" render="Label" position="956,593" size="105,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="grey" font="Regular;22" halign="left">
-    <convert type="EventTime">Duration</convert>
-    <convert type="ClockToText">InMinutes</convert>
-  </widget>
-  <!-- more test iptv hd  -->
-  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/ico_iptv_on.png" position="955,515" size="33,21" alphatest="blend" zPosition="1">
-    <convert type="SDGServiceInfo">IsStream</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_sub_on.png" position="990,515" size="33,21" zPosition="1" alphatest="blend">
-    <convert type="ServiceInfo">SubservicesAvailable</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_crypt_on.png" position="1025,515" size="33,21" zPosition="1" alphatest="blend">
-    <convert type="ServiceInfo">IsCrypted</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_txt_on.png" position="1060,515" size="33,21" zPosition="1" alphatest="blend">
-    <convert type="ServiceInfo">HasTelext</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_dolby_on.png" position="1095,515" size="33,21" zPosition="1" alphatest="blend">
-    <convert type="ServiceInfo">IsMultichannel</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_format_hd.png" position="1130,515" size="33,21" zPosition="1" alphatest="blend">
-    <convert type="ServiceInfo">VideoWidth</convert>
-    <convert type="ValueRange">800,2000</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_hbbtv_on.png" position="1165,515" size="46,21" zPosition="1" alphatest="blend">
-    <convert type="ServiceInfo">HasHBBTV</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="Satdreamgr-HD/infobar/ico_format_4_3.png" position="1200,515" size="33,21" zPosition="1" alphatest="blend" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_format_16_9.png" position="1200,515" size="33,21" zPosition="2" alphatest="blend">
-    <convert type="ServiceInfo">IsWidescreen</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <!-- rec -->
-  <widget source="session.RecordState" render="Pixmap" pixmap="Satdreamgr-HD/buttons/rec.png" position="1072,662" size="20,20" zPosition="1" alphatest="blend">
-    <convert type="ConditionalShowHide">Blink</convert>
-  </widget>
-  <!-- tuner -->
-  <ePixmap alphatest="blend" pixmap="Satdreamgr-HD/iconsbis/icon_aw.png" size="26,40" position="1113,649" zPosition="1" transparent="1" />
-  <widget source="session.TunerInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_aw-y.png" size="26,40" position="1114,649" zPosition="2" alphatest="blend">
-    <convert type="TunerInfo">TunerUseMask</convert>
-    <convert type="ValueBitTest">1</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.FrontendInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_aw-g.png" size="26,40" position="1114,649" zPosition="3" alphatest="blend">
-    <convert type="FrontendInfo">NUMBER</convert>
-    <convert type="ValueRange">0,0</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap alphatest="blend" pixmap="Satdreamgr-HD/iconsbis/icon_bw.png" size="26,40" position="1145,649" zPosition="1" transparent="1" />
-  <widget source="session.TunerInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_bw-y.png" size="26,40" position="1144,650" zPosition="2" alphatest="blend">
-    <convert type="TunerInfo">TunerUseMask</convert>
-    <convert type="ValueBitTest">2</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.FrontendInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_bw-g.png" size="26,40" position="1144,650" zPosition="3" alphatest="blend" transparent="1">
-    <convert type="FrontendInfo">NUMBER</convert>
-    <convert type="ValueRange">1,1</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap alphatest="blend" pixmap="Satdreamgr-HD/iconsbis/icon_cw.png" size="26,40" position="1177,649" zPosition="1" transparent="1" />
-  <widget source="session.TunerInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_cw-y.png" size="26,40" position="1177,648" zPosition="2" alphatest="blend">
-    <convert type="TunerInfo">TunerUseMask</convert>
-    <convert type="ValueBitTest">4</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.FrontendInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_cw-g.png" size="26,40" position="1176,649" zPosition="3" alphatest="blend">
-    <convert type="FrontendInfo">NUMBER</convert>
-    <convert type="ValueRange">2,2</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="Satdreamgr-HD/iconsbis/icon_dw.png" position="1209,648" size="26,40" zPosition="1" alphatest="blend" transparent="1" />
-  <widget source="session.TunerInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_dw-y.png" position="1210,649" zPosition="2" size="26,40" alphatest="blend">
-    <convert type="TunerInfo">TunerUseMask</convert>
-    <convert type="ValueBitTest">8</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.FrontendInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_dw-g.png" position="1210,650" zPosition="3" size="26,40" alphatest="blend" transparent="1">
-    <convert type="FrontendInfo">NUMBER</convert>
-    <convert type="ValueRange">3,3</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget render="VideoSize" source="session.CurrentService" position="303,640" size="112,20" font="Regular;18" backgroundColor="secondBG" foregroundColor="un1f771f" transparent="1" zPosition="1" />
-</screen>
+    <!-- event now -->
+    <widget source="session.Event_Now" render="Label" position="180,548" size="70,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="foreground" font="Regular; 22" halign="left">
+      <convert type="EventTime">StartTime</convert>
+      <convert type="ClockToText">Default</convert>
+    </widget>
+    <widget source="session.Event_Now" render="Label" position="255,548" size="710,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="foreground" noWrap="1" font="Regular; 22" halign="left">
+      <convert type="EventName">Name</convert>
+    </widget>
+    <widget source="session.Event_Now" render="Label" position="955,548" size="105,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="foreground" font="Regular;22" halign="left">
+      <convert type="EventTime">Remaining</convert>
+      <convert type="RemainingToText">InMinutes</convert>
+    </widget>
+    <!-- progress -->
+    <widget source="session.Event_Now" render="Progress" pixmap="Satdreamgr-HD/infobar/progress_bg.png" position="178,582" size="862,6" transparent="1" borderWidth="1" borderColor="grey" zPosition="3">
+      <convert type="EventTime">Progress</convert>
+    </widget>
+    <!-- event nex-->
+    <widget source="session.Event_Next" render="Label" position="180,593" size="70,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="grey" font="Regular; 22" halign="left">
+      <convert type="EventTime">StartTime</convert>
+      <convert type="ClockToText">Default</convert>
+    </widget>
+    <widget source="session.Event_Next" render="Label" position="255,593" size="710,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="grey" noWrap="1" font="Regular; 22" halign="left">
+      <convert type="EventName">Name</convert>
+    </widget>
+    <widget source="session.Event_Next" render="Label" position="956,593" size="105,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="grey" font="Regular;22" halign="left">
+      <convert type="EventTime">Duration</convert>
+      <convert type="ClockToText">InMinutes</convert>
+    </widget>
+    <!-- more test iptv hd  -->
+    <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/ico_iptv_on.png" position="955,515" size="33,21" alphatest="blend" zPosition="1">
+      <convert type="SDGServiceInfo">IsStream</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_sub_on.png" position="990,515" size="33,21" zPosition="1" alphatest="blend">
+      <convert type="ServiceInfo">SubservicesAvailable</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_crypt_on.png" position="1025,515" size="33,21" zPosition="1" alphatest="blend">
+      <convert type="ServiceInfo">IsCrypted</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_txt_on.png" position="1060,515" size="33,21" zPosition="1" alphatest="blend">
+      <convert type="ServiceInfo">HasTelext</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_dolby_on.png" position="1095,515" size="33,21" zPosition="1" alphatest="blend">
+      <convert type="ServiceInfo">IsMultichannel</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_format_hd.png" position="1130,515" size="33,21" zPosition="1" alphatest="blend">
+      <convert type="ServiceInfo">VideoWidth</convert>
+      <convert type="ValueRange">800,2000</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_hbbtv_on.png" position="1165,515" size="46,21" zPosition="1" alphatest="blend">
+      <convert type="ServiceInfo">HasHBBTV</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="Satdreamgr-HD/infobar/ico_format_4_3.png" position="1200,515" size="33,21" zPosition="1" alphatest="blend" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_format_16_9.png" position="1200,515" size="33,21" zPosition="2" alphatest="blend">
+      <convert type="ServiceInfo">IsWidescreen</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <!-- rec -->
+    <widget source="session.RecordState" render="Pixmap" pixmap="Satdreamgr-HD/buttons/rec.png" position="1072,662" size="20,20" zPosition="1" alphatest="blend">
+      <convert type="ConditionalShowHide">Blink</convert>
+    </widget>
+    <!-- tuner -->
+    <ePixmap alphatest="blend" pixmap="Satdreamgr-HD/iconsbis/icon_aw.png" size="26,40" position="1113,649" zPosition="1" transparent="1" />
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_aw-y.png" size="26,40" position="1114,649" zPosition="2" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">1</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_aw-g.png" size="26,40" position="1114,649" zPosition="3" alphatest="blend">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">0,0</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap alphatest="blend" pixmap="Satdreamgr-HD/iconsbis/icon_bw.png" size="26,40" position="1145,649" zPosition="1" transparent="1" />
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_bw-y.png" size="26,40" position="1144,650" zPosition="2" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">2</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_bw-g.png" size="26,40" position="1144,650" zPosition="3" alphatest="blend" transparent="1">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">1,1</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap alphatest="blend" pixmap="Satdreamgr-HD/iconsbis/icon_cw.png" size="26,40" position="1177,649" zPosition="1" transparent="1" />
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_cw-y.png" size="26,40" position="1177,648" zPosition="2" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">4</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_cw-g.png" size="26,40" position="1176,649" zPosition="3" alphatest="blend">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">2,2</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="Satdreamgr-HD/iconsbis/icon_dw.png" position="1209,648" size="26,40" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_dw-y.png" position="1210,649" zPosition="2" size="26,40" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">8</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_dw-g.png" position="1210,650" zPosition="3" size="26,40" alphatest="blend" transparent="1">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">3,3</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget render="VideoSize" source="session.CurrentService" position="303,640" size="112,20" font="Regular;18" backgroundColor="secondBG" foregroundColor="un1f771f" transparent="1" zPosition="1" />
+  </screen>
   <!-- second infobar -->
   <screen name="SecondInfoBar" position="0,0" size="1280,720" backgroundColor="transparent" flags="wfNoBorder">
-  <ePixmap pixmap="Satdreamgr-HD/haut.png" position="24,20" size="1231,87" zPosition="-1" alphatest="off" transparent="1" />
-  <ePixmap pixmap="Satdreamgr-HD/border/smallshadowline.png" position="50,61" size="1180,1" zPosition="1" />
-  <ePixmap pixmap="Satdreamgr-HD/border/smallshadowline.png" position="50,543" size="1180,1" zPosition="1" />
-  <ePixmap pixmap="Satdreamgr-HD/border/smallshadowline.png" position="50,632" size="1180,1" zPosition="1" />
-  <ePixmap pixmap="Satdreamgr-HD/infobar.png" position="24,497" size="1231,209" zPosition="-1" alphatest="off" transparent="1" />
-  <!-- first infobar haut -->
-  <!-- infocam-->
-  <widget source="session.CurrentService" render="Label" position="322,33" size="640,27" transparent="1" zPosition="1" backgroundColor="secondBG" foregroundColor="foreground" font="Regular; 20">
-    <convert type="sdgExtraInfo">CryptoBar</convert>
-  </widget>
-  <widget source="session.CurrentService" render="Label" position="80,33" zPosition="1" size="240,27" font="Regular; 20" transparent="1" backgroundColor="secondBG" foregroundColor="un99dd" halign="left">
-    <convert type="sdgCamd">Camd</convert>
-  </widget>
-  <widget source="session.CurrentService" render="Label" position="80,69" size="882,26" backgroundColor="background" foregroundColor="white" transparent="1" zPosition="1" font="Regular; 20">
-    <convert type="sdgCaidDisplay">Default</convert>
-  </widget>
-  <!-- more test bas-->
-
-  <widget source="global.CurrentTime" render="Label" position="1031,62" size="121,42" backgroundColor="secondBG" transparent="1" zPosition="1" font="LCD; 35" halign="right" valign="center">
-    <convert type="ClockToText">Format:%-H:%M</convert>
-  </widget>
-  <widget source="global.CurrentTime" render="Label" position="1155,67" zPosition="1" size="28,22" font="LCD; 20" halign="left" valign="top" transparent="1" backgroundColor="background" foregroundColor="unff0000">
-    <convert type="ClockToText">Format::%S</convert>
-  </widget>
-  <widget source="global.CurrentTime" render="Label" position="973,33" size="263,28" backgroundColor="secondBG" transparent="1" zPosition="1" font="Regular; 20" valign="center" halign="center">
-  <convert type="ClockToText">Format:%a. %d.%b. %Y</convert>
-</widget>
-  <widget source="session.CurrentService" render="ChannelNumber" position="70,514" size="165,26" backgroundColor="secondBG" foregroundColor="un99dd" noWrap="1" transparent="1" zPosition="1" font="Regular;24">
-  </widget>
-  <widget source="session.CurrentService" render="Label" position="556,652" size="500,20" backgroundColor="secondBG" font="Regular;18" transparent="1" zPosition="1">
-    <convert type="sdgServiceInfo">SatName</convert>
-  </widget>
-  <widget source="session.CurrentService" render="Label" position="46,666" size="500,20" transparent="1" zPosition="1" backgroundColor="secondBG" font="Regular;18" halign="left">
-    <convert type="sdgExtraInfo">All</convert>
-  </widget>
-  <!-- more test bas-->
-  <widget source="session.CurrentService" render="Label" position="240,514" size="709,26" font="Regular;24" backgroundColor="secondBG" foregroundColor="un99dd" zPosition="1" noWrap="1" transparent="1" valign="center" halign="center">
-    <convert type="ServiceName">Name</convert>
-  </widget>
-  <widget source="session.CurrentService" render="Label" position="48,640" size="100,20" transparent="1" zPosition="1" foregroundColor="un1f771f" backgroundColor="secondBG" font="Regular; 18" valign="center" halign="left">
-    <convert type="sdgExtraInfo">VideoCodec</convert>
-  </widget>
-  <!-- picon -->
-  <widget source="session.CurrentService" render="Picon" position="65,558" size="100,60" backgroundColor="secondBG" transparent="1" zPosition="1" alphatest="blend">
-    <convert type="ServiceName">Reference</convert>
-  </widget>
-  <!-- SNR -->
-  <eLabel text="SNR" font="Regular; 18" position="1066,547" size="45,20" halign="left" transparent="1" backgroundColor="secondBG" foregroundColor="un1f771f" valign="top" zPosition="1" />
-  <ePixmap pixmap="Satdreamgr-HD/menu/bar.png" position="1112,549" size="70,20" zPosition="1" alphatest="blend" transparent="1" />
-  <widget source="session.FrontendStatus" render="Progress" position="1113,557" size="65,8" pixmap="Satdreamgr-HD/menu/bar_snr.png" zPosition="2" transparent="1">
-    <convert type="FrontendInfo">SNR</convert>
-  </widget>
-  <widget source="session.FrontendStatus" render="Label" position="1189,547" size="50,20" transparent="1" zPosition="1" backgroundColor="background" foregroundColor="foreground" font="Regular;18" valign="top">
-    <convert type="FrontendInfo">SNRdB</convert>
-  </widget>
-  <eLabel text="SNR" font="Regular; 18" position="1066,577" size="45,20" halign="left" transparent="1" backgroundColor="secondBG" foregroundColor="un1f771f" valign="top" zPosition="1" />
-  <ePixmap pixmap="Satdreamgr-HD/menu/bar.png" position="1111,579" size="70,20" zPosition="1" alphatest="blend" transparent="1" />
-  <widget source="session.FrontendStatus" render="Progress" position="1113,585" size="65,8" pixmap="Satdreamgr-HD/menu/bar_snr.png" zPosition="2" transparent="1">
-    <convert type="FrontendInfo">SNR</convert>
-  </widget>
-  <widget source="session.FrontendStatus" render="Label" position="1189,577" zPosition="1" size="50,20" font="Regular;16" halign="left" valign="top" transparent="1" backgroundColor="background">
-    <convert type="FrontendInfo">SNR</convert>
-  </widget>
-  <!-- AGC -->
-  <eLabel text="AGC" font="Regular; 18" position="1066,602" size="45,20" halign="left" transparent="1" backgroundColor="secondBG" foregroundColor="un1f771f" valign="top" zPosition="1" />
-  <ePixmap pixmap="Satdreamgr-HD/menu/bar.png" position="1112,604" size="70,20" zPosition="1" alphatest="blend" transparent="1" />
-  <widget source="session.FrontendStatus" render="Progress" position="1113,610" size="65,8" pixmap="Satdreamgr-HD/menu/bar_agc.png" zPosition="2" transparent="1">
-    <convert type="FrontendInfo">AGC</convert>
-  </widget>
-  <widget source="session.FrontendStatus" render="Label" position="1189,602" size="50,20" transparent="1" zPosition="1" backgroundColor="background" foregroundColor="foreground" font="Regular;18" valign="top">
-    <convert type="FrontendInfo">AGC</convert>
-  </widget>
-  <!-- BER -->
-  <!--<eLabel text="BER" font="Regular; 18" position="845,665" size="50,30" halign="left" transparent="1" backgroundColor="secondBG" foregroundColor="grey" valign="top" />
+    <ePixmap pixmap="Satdreamgr-HD/haut.png" position="24,20" size="1231,87" zPosition="-1" alphatest="off" transparent="1" />
+    <ePixmap pixmap="Satdreamgr-HD/border/smallshadowline.png" position="50,61" size="1180,1" zPosition="1" />
+    <ePixmap pixmap="Satdreamgr-HD/border/smallshadowline.png" position="50,543" size="1180,1" zPosition="1" />
+    <ePixmap pixmap="Satdreamgr-HD/border/smallshadowline.png" position="50,632" size="1180,1" zPosition="1" />
+    <ePixmap pixmap="Satdreamgr-HD/infobar.png" position="24,497" size="1231,209" zPosition="-1" alphatest="off" transparent="1" />
+    <!-- first infobar haut -->
+    <!-- infocam-->
+    <widget source="session.CurrentService" render="Label" position="322,33" size="640,27" transparent="1" zPosition="1" backgroundColor="secondBG" foregroundColor="foreground" font="Regular; 20">
+      <convert type="sdgExtraInfo">CryptoBar</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="80,33" zPosition="1" size="240,27" font="Regular; 20" transparent="1" backgroundColor="secondBG" foregroundColor="un99dd" halign="left">
+      <convert type="sdgCamd">Camd</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="80,69" size="882,26" backgroundColor="background" foregroundColor="white" transparent="1" zPosition="1" font="Regular; 20">
+      <convert type="sdgCaidDisplay">Default</convert>
+    </widget>
+    <!-- more test bas-->
+    <widget source="global.CurrentTime" render="Label" position="1031,62" size="121,42" backgroundColor="secondBG" transparent="1" zPosition="1" font="LCD; 35" halign="right" valign="center">
+      <convert type="ClockToText">Format:%-H:%M</convert>
+    </widget>
+    <widget source="global.CurrentTime" render="Label" position="1155,67" zPosition="1" size="28,22" font="LCD; 20" halign="left" valign="top" transparent="1" backgroundColor="background" foregroundColor="unff0000">
+      <convert type="ClockToText">Format::%S</convert>
+    </widget>
+    <widget source="global.CurrentTime" render="Label" position="973,33" size="263,28" backgroundColor="secondBG" transparent="1" zPosition="1" font="Regular; 20" valign="center" halign="center">
+      <convert type="ClockToText">Format:%a. %d.%b. %Y</convert>
+    </widget>
+    <widget source="session.CurrentService" render="ChannelNumber" position="70,514" size="165,26" backgroundColor="secondBG" foregroundColor="un99dd" noWrap="1" transparent="1" zPosition="1" font="Regular;24">
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="556,652" size="500,20" backgroundColor="secondBG" font="Regular;18" transparent="1" zPosition="1">
+      <convert type="sdgServiceInfo">SatName</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="46,666" size="500,20" transparent="1" zPosition="1" backgroundColor="secondBG" font="Regular;18" halign="left">
+      <convert type="sdgExtraInfo">All</convert>
+    </widget>
+    <!-- more test bas-->
+    <widget source="session.CurrentService" render="Label" position="240,514" size="709,26" font="Regular;24" backgroundColor="secondBG" foregroundColor="un99dd" zPosition="1" noWrap="1" transparent="1" valign="center" halign="center">
+      <convert type="ServiceName">Name</convert>
+    </widget>
+    <widget source="session.CurrentService" render="Label" position="48,640" size="100,20" transparent="1" zPosition="1" foregroundColor="un1f771f" backgroundColor="secondBG" font="Regular; 18" valign="center" halign="left">
+      <convert type="sdgExtraInfo">VideoCodec</convert>
+    </widget>
+    <!-- picon -->
+    <widget source="session.CurrentService" render="Picon" position="65,558" size="100,60" backgroundColor="secondBG" transparent="1" zPosition="1" alphatest="blend">
+      <convert type="ServiceName">Reference</convert>
+    </widget>
+    <!-- SNR -->
+    <eLabel text="SNR" font="Regular; 18" position="1066,547" size="45,20" halign="left" transparent="1" backgroundColor="secondBG" foregroundColor="un1f771f" valign="top" zPosition="1" />
+    <ePixmap pixmap="Satdreamgr-HD/menu/bar.png" position="1112,549" size="70,20" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.FrontendStatus" render="Progress" position="1113,557" size="65,8" pixmap="Satdreamgr-HD/menu/bar_snr.png" zPosition="2" transparent="1">
+      <convert type="FrontendInfo">SNR</convert>
+    </widget>
+    <widget source="session.FrontendStatus" render="Label" position="1189,547" size="50,20" transparent="1" zPosition="1" backgroundColor="background" foregroundColor="foreground" font="Regular;18" valign="top">
+      <convert type="FrontendInfo">SNRdB</convert>
+    </widget>
+    <eLabel text="SNR" font="Regular; 18" position="1066,577" size="45,20" halign="left" transparent="1" backgroundColor="secondBG" foregroundColor="un1f771f" valign="top" zPosition="1" />
+    <ePixmap pixmap="Satdreamgr-HD/menu/bar.png" position="1111,579" size="70,20" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.FrontendStatus" render="Progress" position="1113,585" size="65,8" pixmap="Satdreamgr-HD/menu/bar_snr.png" zPosition="2" transparent="1">
+      <convert type="FrontendInfo">SNR</convert>
+    </widget>
+    <widget source="session.FrontendStatus" render="Label" position="1189,577" zPosition="1" size="50,20" font="Regular;16" halign="left" valign="top" transparent="1" backgroundColor="background">
+      <convert type="FrontendInfo">SNR</convert>
+    </widget>
+    <!-- AGC -->
+    <eLabel text="AGC" font="Regular; 18" position="1066,602" size="45,20" halign="left" transparent="1" backgroundColor="secondBG" foregroundColor="un1f771f" valign="top" zPosition="1" />
+    <ePixmap pixmap="Satdreamgr-HD/menu/bar.png" position="1112,604" size="70,20" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.FrontendStatus" render="Progress" position="1113,610" size="65,8" pixmap="Satdreamgr-HD/menu/bar_agc.png" zPosition="2" transparent="1">
+      <convert type="FrontendInfo">AGC</convert>
+    </widget>
+    <widget source="session.FrontendStatus" render="Label" position="1189,602" size="50,20" transparent="1" zPosition="1" backgroundColor="background" foregroundColor="foreground" font="Regular;18" valign="top">
+      <convert type="FrontendInfo">AGC</convert>
+    </widget>
+    <!-- BER -->
+    <!--<eLabel text="BER" font="Regular; 18" position="845,665" size="50,30" halign="left" transparent="1" backgroundColor="secondBG" foregroundColor="grey" valign="top" />
     <ePixmap pixmap="Satdreamgr-HD/menu/bar.png" position="900,667" size="73,18" zPosition="1" alphatest="blend" />
     <widget source="session.FrontendStatus" render="Progress" position="905,672" size="65,10" pixmap="Satdreamgr-HD/menu/bar_ber.png" zPosition="1">
       <convert type="FrontendInfo">BER</convert>
@@ -717,172 +712,172 @@
     <widget source="session.FrontendStatus" render="Label" position="980,665" size="65,30" transparent="1" zPosition="1" backgroundColor="background" foregroundColor="foreground" font="Regular;18" valign="top">
       <convert type="FrontendInfo">BER</convert>
     </widget>-->
-  <!-- event now -->
-  <widget source="session.Event_Now" render="Label" position="180,548" size="70,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="foreground" font="Regular; 22" halign="left">
-    <convert type="EventTime">StartTime</convert>
-    <convert type="ClockToText">Default</convert>
-  </widget>
-  <widget source="session.Event_Now" render="Label" position="255,548" size="710,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="foreground" noWrap="1" font="Regular; 22" halign="left">
-    <convert type="EventName">Name</convert>
-  </widget>
-  <widget source="session.Event_Now" render="Label" position="955,548" size="105,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="foreground" font="Regular;22" halign="left">
-    <convert type="EventTime">Remaining</convert>
-    <convert type="RemainingToText">InMinutes</convert>
-  </widget>
-  <!-- progress -->
-  <widget source="session.Event_Now" render="Progress" pixmap="Satdreamgr-HD/infobar/progress_bg.png" position="178,582" size="862,6" transparent="1" borderWidth="1" borderColor="grey" zPosition="3">
-    <convert type="EventTime">Progress</convert>
-  </widget>
-  <!-- event nex-->
-  <widget source="session.Event_Next" render="Label" position="180,593" size="70,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="grey" font="Regular; 22" halign="left">
-    <convert type="EventTime">StartTime</convert>
-    <convert type="ClockToText">Default</convert>
-  </widget>
-  <widget source="session.Event_Next" render="Label" position="255,593" size="710,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="grey" noWrap="1" font="Regular; 22" halign="left">
-    <convert type="EventName">Name</convert>
-  </widget>
-  <widget source="session.Event_Next" render="Label" position="956,593" size="105,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="grey" font="Regular;22" halign="left">
-    <convert type="EventTime">Duration</convert>
-    <convert type="ClockToText">InMinutes</convert>
-  </widget>
-  <!-- more test iptv hd  -->
-  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/ico_iptv_on.png" position="955,515" size="33,21" alphatest="blend" zPosition="1">
-    <convert type="SDGServiceInfo">IsStream</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_sub_on.png" position="990,515" size="33,21" zPosition="1" alphatest="blend">
-    <convert type="ServiceInfo">SubservicesAvailable</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_crypt_on.png" position="1025,515" size="33,21" zPosition="1" alphatest="blend">
-    <convert type="ServiceInfo">IsCrypted</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_txt_on.png" position="1060,515" size="33,21" zPosition="1" alphatest="blend">
-    <convert type="ServiceInfo">HasTelext</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_dolby_on.png" position="1095,515" size="33,21" zPosition="1" alphatest="blend">
-    <convert type="ServiceInfo">IsMultichannel</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_format_hd.png" position="1130,515" size="33,21" zPosition="1" alphatest="blend">
-    <convert type="ServiceInfo">VideoWidth</convert>
-    <convert type="ValueRange">800,2000</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_hbbtv_on.png" position="1165,515" size="46,21" zPosition="1" alphatest="blend">
-    <convert type="ServiceInfo">HasHBBTV</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="Satdreamgr-HD/infobar/ico_format_4_3.png" position="1200,515" size="33,21" zPosition="1" alphatest="blend" />
-  <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_format_16_9.png" position="1200,515" size="33,21" zPosition="2" alphatest="blend">
-    <convert type="ServiceInfo">IsWidescreen</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <!-- rec -->
-  <widget source="session.RecordState" render="Pixmap" pixmap="Satdreamgr-HD/buttons/rec.png" position="1072,662" size="20,20" zPosition="1" alphatest="blend">
-    <convert type="ConditionalShowHide">Blink</convert>
-  </widget>
-  <!-- tuner -->
-  <ePixmap alphatest="blend" pixmap="Satdreamgr-HD/iconsbis/icon_aw.png" size="26,40" position="1113,649" zPosition="1" transparent="1" />
-  <widget source="session.TunerInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_aw-y.png" size="26,40" position="1114,649" zPosition="2" alphatest="blend">
-    <convert type="TunerInfo">TunerUseMask</convert>
-    <convert type="ValueBitTest">1</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.FrontendInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_aw-g.png" size="26,40" position="1114,649" zPosition="3" alphatest="blend">
-    <convert type="FrontendInfo">NUMBER</convert>
-    <convert type="ValueRange">0,0</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap alphatest="blend" pixmap="Satdreamgr-HD/iconsbis/icon_bw.png" size="26,40" position="1145,649" zPosition="1" transparent="1" />
-  <widget source="session.TunerInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_bw-y.png" size="26,40" position="1144,650" zPosition="2" alphatest="blend">
-    <convert type="TunerInfo">TunerUseMask</convert>
-    <convert type="ValueBitTest">2</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.FrontendInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_bw-g.png" size="26,40" position="1144,650" zPosition="3" alphatest="blend" transparent="1">
-    <convert type="FrontendInfo">NUMBER</convert>
-    <convert type="ValueRange">1,1</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap alphatest="blend" pixmap="Satdreamgr-HD/iconsbis/icon_cw.png" size="26,40" position="1177,649" zPosition="1" transparent="1" />
-  <widget source="session.TunerInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_cw-y.png" size="26,40" position="1177,648" zPosition="2" alphatest="blend">
-    <convert type="TunerInfo">TunerUseMask</convert>
-    <convert type="ValueBitTest">4</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.FrontendInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_cw-g.png" size="26,40" position="1176,649" zPosition="3" alphatest="blend">
-    <convert type="FrontendInfo">NUMBER</convert>
-    <convert type="ValueRange">2,2</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <ePixmap pixmap="Satdreamgr-HD/iconsbis/icon_dw.png" position="1209,648" size="26,40" zPosition="1" alphatest="blend" transparent="1" />
-  <widget source="session.TunerInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_dw-y.png" position="1210,649" zPosition="2" size="26,40" alphatest="blend">
-    <convert type="TunerInfo">TunerUseMask</convert>
-    <convert type="ValueBitTest">8</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget source="session.FrontendInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_dw-g.png" position="1210,650" zPosition="3" size="26,40" alphatest="blend" transparent="1">
-    <convert type="FrontendInfo">NUMBER</convert>
-    <convert type="ValueRange">3,3</convert>
-    <convert type="ConditionalShowHide" />
-  </widget>
-  <widget render="VideoSize" source="session.CurrentService" position="303,640" size="112,20" font="Regular;18" backgroundColor="secondBG" foregroundColor="un1f771f" transparent="1" zPosition="1" />
-  <ePixmap position="center,119" zPosition="-1" size="1058,380" pixmap="Satdreamgr-HD/second.png" transparent="1" />
-  <widget source="session.Event_Now" render="Label" position="144,162" size="77,25" font="Regular;22" halign="center" backgroundColor="background" transparent="1">
-    <convert type="EventTime">StartTime</convert>
-    <convert type="ClockToText">Default</convert>
-  </widget>
-  <eLabel text="-" position="227,162" size="15,25" font="Regular;22" halign="center" backgroundColor="background" foregroundColor="grey" transparent="1" />
-  <widget source="session.Event_Now" render="Label" position="243,161" size="76,25" font="Regular;22" halign="center" backgroundColor="background" transparent="1">
-    <convert type="EventTime">EndTime</convert>
-    <convert type="ClockToText">Default</convert>
-  </widget>
-  <eLabel text="[" position="319,161" size="10,25" font="Regular;19" halign="center" backgroundColor="background" foregroundColor="grey" transparent="1" />
-  <widget source="session.Event_Now" render="Label" position="332,162" size="120,25" font="Regular; 22" halign="center" backgroundColor="background" transparent="1">
-    <convert type="EventTime">Remaining</convert>
-    <convert type="RemainingToText">InMinutes</convert>
-  </widget>
-  <eLabel text="]" position="455,161" size="10,25" font="Regular;19" halign="center" backgroundColor="background" foregroundColor="grey" transparent="1" />
-  <widget source="session.Event_Now" render="Label" position="120,130" size="500,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="secondFG" noWrap="1" font="Regular;22" halign="left">
-    <convert type="EventName">NameNow</convert>
-  </widget>
-  <widget source="session.Event_Next" render="Label" position="630,130" size="500,30" backgroundColor="darkgrey" transparent="1" zPosition="3" foregroundColor="un99dd" noWrap="1" font="Regular;22">
-    <convert type="EventName">NameNext</convert>
-  </widget>
-  <widget source="session.Event_Next" render="Label" position="724,162" size="77,25" font="Regular;22" halign="center" backgroundColor="background" transparent="1">
-    <convert type="EventTime">StartTime</convert>
-    <convert type="ClockToText">Default</convert>
-  </widget>
-  <eLabel text="-" position="804,160" size="15,25" font="Regular;22" halign="center" backgroundColor="background" foregroundColor="grey" transparent="1" />
-  <widget source="session.Event_Next" render="Label" position="821,162" size="76,25" font="Regular;22" halign="center" backgroundColor="background" transparent="1">
-    <convert type="EventTime">EndTime</convert>
-    <convert type="ClockToText">Default</convert>
-  </widget>
-  <eLabel text="[" position="899,163" size="10,25" font="Regular;19" halign="center" backgroundColor="background" foregroundColor="grey" transparent="1" />
-  <widget source="session.Event_Next" render="Label" position="912,162" size="120,25" font="Regular; 22" halign="center" backgroundColor="background" transparent="1">
-    <convert type="EventTime">Remaining</convert>
-    <convert type="RemainingToText">InMinutes</convert>
-  </widget>
-  <eLabel text="]" position="1139,160" size="10,25" font="Regular;19" halign="center" backgroundColor="background" foregroundColor="grey" transparent="1" />
-  <widget source="global.CurrentTime" render="Label" position="469,162" size="90,25" font="Regular;23" halign="right" backgroundColor="black" transparent="1">
-    <convert type="ClockToText">Default</convert>
-  </widget>
-  <widget source="global.CurrentTime" render="Label" position="563,164" size="40,22" font="Regular;18" halign="left" backgroundColor="black" foregroundColor="unff0000" transparent="1" valign="top">
-    <convert type="ClockToText">Format::%S</convert>
-  </widget>
-  <widget source="session.Event_Now" render="Label" position="134,206" size="500,275" font="Regular; 20" zPosition="2" backgroundColor="darkgrey" transparent="1" foregroundColor="csblue">
-    <convert type="EventName">ExtendedDescription</convert>
-  </widget>
-  <widget source="session.Event_Now" render="Progress" position="142,193" size="461,9" pixmap="Satdreamgr-HD/infobar/progress_bg.png" transparent="1" zPosition="3" borderWidth="1" borderColor="white" backgroundColor="csblue">
-    <convert type="EventTime">Progress</convert>
-  </widget>
-  <widget source="session.Event_Next" render="Label" position="655,205" size="500,275" font="Regular; 20" zPosition="2" backgroundColor="darkgrey" transparent="1" foregroundColor="white">
-    <convert type="EventName">ExtendedDescription</convert>
-  </widget>
-</screen>
+    <!-- event now -->
+    <widget source="session.Event_Now" render="Label" position="180,548" size="70,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="foreground" font="Regular; 22" halign="left">
+      <convert type="EventTime">StartTime</convert>
+      <convert type="ClockToText">Default</convert>
+    </widget>
+    <widget source="session.Event_Now" render="Label" position="255,548" size="710,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="foreground" noWrap="1" font="Regular; 22" halign="left">
+      <convert type="EventName">Name</convert>
+    </widget>
+    <widget source="session.Event_Now" render="Label" position="955,548" size="105,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="foreground" font="Regular;22" halign="left">
+      <convert type="EventTime">Remaining</convert>
+      <convert type="RemainingToText">InMinutes</convert>
+    </widget>
+    <!-- progress -->
+    <widget source="session.Event_Now" render="Progress" pixmap="Satdreamgr-HD/infobar/progress_bg.png" position="178,582" size="862,6" transparent="1" borderWidth="1" borderColor="grey" zPosition="3">
+      <convert type="EventTime">Progress</convert>
+    </widget>
+    <!-- event nex-->
+    <widget source="session.Event_Next" render="Label" position="180,593" size="70,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="grey" font="Regular; 22" halign="left">
+      <convert type="EventTime">StartTime</convert>
+      <convert type="ClockToText">Default</convert>
+    </widget>
+    <widget source="session.Event_Next" render="Label" position="255,593" size="710,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="grey" noWrap="1" font="Regular; 22" halign="left">
+      <convert type="EventName">Name</convert>
+    </widget>
+    <widget source="session.Event_Next" render="Label" position="956,593" size="105,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="grey" font="Regular;22" halign="left">
+      <convert type="EventTime">Duration</convert>
+      <convert type="ClockToText">InMinutes</convert>
+    </widget>
+    <!-- more test iptv hd  -->
+    <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/ico_iptv_on.png" position="955,515" size="33,21" alphatest="blend" zPosition="1">
+      <convert type="SDGServiceInfo">IsStream</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_sub_on.png" position="990,515" size="33,21" zPosition="1" alphatest="blend">
+      <convert type="ServiceInfo">SubservicesAvailable</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_crypt_on.png" position="1025,515" size="33,21" zPosition="1" alphatest="blend">
+      <convert type="ServiceInfo">IsCrypted</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_txt_on.png" position="1060,515" size="33,21" zPosition="1" alphatest="blend">
+      <convert type="ServiceInfo">HasTelext</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_dolby_on.png" position="1095,515" size="33,21" zPosition="1" alphatest="blend">
+      <convert type="ServiceInfo">IsMultichannel</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_format_hd.png" position="1130,515" size="33,21" zPosition="1" alphatest="blend">
+      <convert type="ServiceInfo">VideoWidth</convert>
+      <convert type="ValueRange">800,2000</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_hbbtv_on.png" position="1165,515" size="46,21" zPosition="1" alphatest="blend">
+      <convert type="ServiceInfo">HasHBBTV</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="Satdreamgr-HD/infobar/ico_format_4_3.png" position="1200,515" size="33,21" zPosition="1" alphatest="blend" />
+    <widget source="session.CurrentService" render="Pixmap" pixmap="Satdreamgr-HD/infobar/ico_format_16_9.png" position="1200,515" size="33,21" zPosition="2" alphatest="blend">
+      <convert type="ServiceInfo">IsWidescreen</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <!-- rec -->
+    <widget source="session.RecordState" render="Pixmap" pixmap="Satdreamgr-HD/buttons/rec.png" position="1072,662" size="20,20" zPosition="1" alphatest="blend">
+      <convert type="ConditionalShowHide">Blink</convert>
+    </widget>
+    <!-- tuner -->
+    <ePixmap alphatest="blend" pixmap="Satdreamgr-HD/iconsbis/icon_aw.png" size="26,40" position="1113,649" zPosition="1" transparent="1" />
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_aw-y.png" size="26,40" position="1114,649" zPosition="2" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">1</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_aw-g.png" size="26,40" position="1114,649" zPosition="3" alphatest="blend">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">0,0</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap alphatest="blend" pixmap="Satdreamgr-HD/iconsbis/icon_bw.png" size="26,40" position="1145,649" zPosition="1" transparent="1" />
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_bw-y.png" size="26,40" position="1144,650" zPosition="2" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">2</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_bw-g.png" size="26,40" position="1144,650" zPosition="3" alphatest="blend" transparent="1">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">1,1</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap alphatest="blend" pixmap="Satdreamgr-HD/iconsbis/icon_cw.png" size="26,40" position="1177,649" zPosition="1" transparent="1" />
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_cw-y.png" size="26,40" position="1177,648" zPosition="2" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">4</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_cw-g.png" size="26,40" position="1176,649" zPosition="3" alphatest="blend">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">2,2</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <ePixmap pixmap="Satdreamgr-HD/iconsbis/icon_dw.png" position="1209,648" size="26,40" zPosition="1" alphatest="blend" transparent="1" />
+    <widget source="session.TunerInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_dw-y.png" position="1210,649" zPosition="2" size="26,40" alphatest="blend">
+      <convert type="TunerInfo">TunerUseMask</convert>
+      <convert type="ValueBitTest">8</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget source="session.FrontendInfo" render="Pixmap" pixmap="Satdreamgr-HD/iconsbis/icon_dw-g.png" position="1210,650" zPosition="3" size="26,40" alphatest="blend" transparent="1">
+      <convert type="FrontendInfo">NUMBER</convert>
+      <convert type="ValueRange">3,3</convert>
+      <convert type="ConditionalShowHide" />
+    </widget>
+    <widget render="VideoSize" source="session.CurrentService" position="303,640" size="112,20" font="Regular;18" backgroundColor="secondBG" foregroundColor="un1f771f" transparent="1" zPosition="1" />
+    <ePixmap position="center,119" zPosition="-1" size="1058,380" pixmap="Satdreamgr-HD/second.png" transparent="1" />
+    <widget source="session.Event_Now" render="Label" position="144,162" size="77,25" font="Regular;22" halign="center" backgroundColor="background" transparent="1">
+      <convert type="EventTime">StartTime</convert>
+      <convert type="ClockToText">Default</convert>
+    </widget>
+    <eLabel text="-" position="227,162" size="15,25" font="Regular;22" halign="center" backgroundColor="background" foregroundColor="grey" transparent="1" />
+    <widget source="session.Event_Now" render="Label" position="243,161" size="76,25" font="Regular;22" halign="center" backgroundColor="background" transparent="1">
+      <convert type="EventTime">EndTime</convert>
+      <convert type="ClockToText">Default</convert>
+    </widget>
+    <eLabel text="[" position="319,161" size="10,25" font="Regular;19" halign="center" backgroundColor="background" foregroundColor="grey" transparent="1" />
+    <widget source="session.Event_Now" render="Label" position="332,162" size="120,25" font="Regular; 22" halign="center" backgroundColor="background" transparent="1">
+      <convert type="EventTime">Remaining</convert>
+      <convert type="RemainingToText">InMinutes</convert>
+    </widget>
+    <eLabel text="]" position="455,161" size="10,25" font="Regular;19" halign="center" backgroundColor="background" foregroundColor="grey" transparent="1" />
+    <widget source="session.Event_Now" render="Label" position="120,130" size="500,30" backgroundColor="secondBG" transparent="1" zPosition="1" foregroundColor="secondFG" noWrap="1" font="Regular;22" halign="left">
+      <convert type="EventName">NameNow</convert>
+    </widget>
+    <widget source="session.Event_Next" render="Label" position="630,130" size="500,30" backgroundColor="darkgrey" transparent="1" zPosition="3" foregroundColor="un99dd" noWrap="1" font="Regular;22">
+      <convert type="EventName">NameNext</convert>
+    </widget>
+    <widget source="session.Event_Next" render="Label" position="724,162" size="77,25" font="Regular;22" halign="center" backgroundColor="background" transparent="1">
+      <convert type="EventTime">StartTime</convert>
+      <convert type="ClockToText">Default</convert>
+    </widget>
+    <eLabel text="-" position="804,160" size="15,25" font="Regular;22" halign="center" backgroundColor="background" foregroundColor="grey" transparent="1" />
+    <widget source="session.Event_Next" render="Label" position="821,162" size="76,25" font="Regular;22" halign="center" backgroundColor="background" transparent="1">
+      <convert type="EventTime">EndTime</convert>
+      <convert type="ClockToText">Default</convert>
+    </widget>
+    <eLabel text="[" position="899,163" size="10,25" font="Regular;19" halign="center" backgroundColor="background" foregroundColor="grey" transparent="1" />
+    <widget source="session.Event_Next" render="Label" position="912,162" size="120,25" font="Regular; 22" halign="center" backgroundColor="background" transparent="1">
+      <convert type="EventTime">Remaining</convert>
+      <convert type="RemainingToText">InMinutes</convert>
+    </widget>
+    <eLabel text="]" position="1139,160" size="10,25" font="Regular;19" halign="center" backgroundColor="background" foregroundColor="grey" transparent="1" />
+    <widget source="global.CurrentTime" render="Label" position="469,162" size="90,25" font="Regular;23" halign="right" backgroundColor="black" transparent="1">
+      <convert type="ClockToText">Default</convert>
+    </widget>
+    <widget source="global.CurrentTime" render="Label" position="563,164" size="40,22" font="Regular;18" halign="left" backgroundColor="black" foregroundColor="unff0000" transparent="1" valign="top">
+      <convert type="ClockToText">Format::%S</convert>
+    </widget>
+    <widget source="session.Event_Now" render="Label" position="134,206" size="500,275" font="Regular; 20" zPosition="2" backgroundColor="darkgrey" transparent="1" foregroundColor="csblue">
+      <convert type="EventName">ExtendedDescription</convert>
+    </widget>
+    <widget source="session.Event_Now" render="Progress" position="142,193" size="461,9" pixmap="Satdreamgr-HD/infobar/progress_bg.png" transparent="1" zPosition="3" borderWidth="1" borderColor="white" backgroundColor="csblue">
+      <convert type="EventTime">Progress</convert>
+    </widget>
+    <widget source="session.Event_Next" render="Label" position="655,205" size="500,275" font="Regular; 20" zPosition="2" backgroundColor="darkgrey" transparent="1" foregroundColor="white">
+      <convert type="EventName">ExtendedDescription</convert>
+    </widget>
+  </screen>
   <!-- second end -->
   <!-- Volume -->
   <screen name="Volume" title="Volume" position="110,234" size="51,230" zPosition="1" flags="wfNoBorder">
@@ -895,47 +890,45 @@
   </screen>
   <!-- Channel,EPG,EventInfo -->
   <screen name="ChannelSelection" position="0,0" size="1280,720" transparent="0" flags="wfNoBorder" backgroundColor="background">
-  <panel name="ButtonTemplate_4" />
-  <panel name="KeyMenuInfoTemplate" />
-  <ePixmap pixmap="Satdreamgr-HD/epg.png" position="0,0" zPosition="-10" size="1280,720" transparent="1" alphatest="off" />
+    <panel name="ButtonTemplate_4" />
+    <panel name="KeyMenuInfoTemplate" />
+    <ePixmap pixmap="Satdreamgr-HD/epg.png" position="0,0" zPosition="-10" size="1280,720" transparent="1" alphatest="off" />
     <widget source="Title" render="Label" position="51,28" size="873,59" backgroundColor="transpB" transparent="1" zPosition="1" font="Regular;24" valign="center" halign="left" />
-
-  <widget source="global.CurrentTime" render="Label" position="1031,55" size="121,36" backgroundColor="secondBG" transparent="1" zPosition="1" font="LCD; 35" halign="right" valign="center">
-    <convert type="ClockToText">Format:%-H:%M</convert>
-  </widget>
-  <widget source="global.CurrentTime" render="Label" position="1155,55" zPosition="1" size="28,22" font="LCD; 20" halign="left" valign="top" transparent="1" backgroundColor="background" foregroundColor="unff0000">
-    <convert type="ClockToText">Format::%S</convert>
-  </widget>
-  <widget source="global.CurrentTime" render="Label" position="973,28" size="263,28" backgroundColor="secondBG" transparent="1" zPosition="1" font="Regular; 20" valign="center" halign="center">
-  <convert type="ClockToText">Format:%a. %d.%b. %Y</convert>
-</widget>
-
-  <widget backgroundColor="transpB" foregroundColor="white" font="Regular;22" position="880,160" render="Label" size="350,350" source="ServiceEvent" halign="left" transparent="1" zPosition="1">
-    <convert type="EventName">ExtendedDescription</convert>
-  </widget>
-  <widget font="Regular; 22" noWrap="1" position="879,110" render="Label" size="386,34" source="ServiceEvent" foregroundColor="selectedFG" halign="left" valign="center" zPosition="1" transparent="1" backgroundColor="background">
-    <convert type="ServiceName">Name</convert>
-  </widget>
-  <widget font="Regular; 22" noWrap="1" position="50,580" render="Label" size="600,24" source="ServiceEvent" foregroundColor="secondFG" halign="left" transparent="1" zPosition="1">
-    <convert type="EventName">Name</convert>
-  </widget>
-  <widget font="Regular;19" position="50,606" render="Label" size="62,22" source="ServiceEvent" transparent="1" zPosition="1">
-    <convert type="EventTime">StartTime</convert>
-    <convert type="ClockToText" />
-  </widget>
-  <widget source="ServiceEvent" render="Progress" pixmap="Satdreamgr-HD/infobar/progress_bg.png" position="122,616" size="190,10" transparent="1" borderWidth="1" borderColor="grey" zPosition="1">
-    <convert type="EventTime">Progress</convert>
-  </widget>
-  <widget source="ServiceEvent" render="Label" position="323,606" size="62,22" transparent="1" foregroundColor="secondFG" font="Regular;19" zPosition="1">
-    <convert type="EventTime">EndTime</convert>
-    <convert type="ClockToText" />
-  </widget>
-  <widget source="session.Event_Next" render="Label" position="679,588" size="599,36" backgroundColor="darkgrey" transparent="1" zPosition="1" foregroundColor="yellow" noWrap="1" font="Regular;22">
-    <convert type="EventName">NameNext</convert>
-  </widget>
-  <ePixmap alphatest="blend" pixmap="Satdreamgr-HD/logos/satdreamgr.png" position="958,528" size="199,38" zPosition="1" />
-  <widget name="list" position="51,110" size="785,450" scrollbarMode="showOnDemand" foregroundColorServiceNotAvail="grey2" serviceItemHeight="30" serviceNumberFont="Regular;19" serviceNameFont="Regular;25" serviceInfoFont="Regular;21" colorServiceDescription="#11aaff" colorServiceDescriptionSelected="yellow" colorEventProgressbar="#11aaff" colorEventProgressbarSelected="yellow" colorEventProgressbarBorder="grey" colorEventProgressbarBorderSelected="white" transparent="1" selectionPixmap="Satdreamgr-HD/sel/sel.png" />
-</screen>
+    <widget source="global.CurrentTime" render="Label" position="1031,55" size="121,36" backgroundColor="secondBG" transparent="1" zPosition="1" font="LCD; 35" halign="right" valign="center">
+      <convert type="ClockToText">Format:%-H:%M</convert>
+    </widget>
+    <widget source="global.CurrentTime" render="Label" position="1155,55" zPosition="1" size="28,22" font="LCD; 20" halign="left" valign="top" transparent="1" backgroundColor="background" foregroundColor="unff0000">
+      <convert type="ClockToText">Format::%S</convert>
+    </widget>
+    <widget source="global.CurrentTime" render="Label" position="973,28" size="263,28" backgroundColor="secondBG" transparent="1" zPosition="1" font="Regular; 20" valign="center" halign="center">
+      <convert type="ClockToText">Format:%a. %d.%b. %Y</convert>
+    </widget>
+    <widget backgroundColor="transpB" foregroundColor="white" font="Regular;22" position="880,160" render="Label" size="350,350" source="ServiceEvent" halign="left" transparent="1" zPosition="1">
+      <convert type="EventName">ExtendedDescription</convert>
+    </widget>
+    <widget font="Regular; 22" noWrap="1" position="879,110" render="Label" size="386,34" source="ServiceEvent" foregroundColor="selectedFG" halign="left" valign="center" zPosition="1" transparent="1" backgroundColor="background">
+      <convert type="ServiceName">Name</convert>
+    </widget>
+    <widget font="Regular; 22" noWrap="1" position="50,580" render="Label" size="600,24" source="ServiceEvent" foregroundColor="secondFG" halign="left" transparent="1" zPosition="1">
+      <convert type="EventName">Name</convert>
+    </widget>
+    <widget font="Regular;19" position="50,606" render="Label" size="62,22" source="ServiceEvent" transparent="1" zPosition="1">
+      <convert type="EventTime">StartTime</convert>
+      <convert type="ClockToText" />
+    </widget>
+    <widget source="ServiceEvent" render="Progress" pixmap="Satdreamgr-HD/infobar/progress_bg.png" position="122,616" size="190,10" transparent="1" borderWidth="1" borderColor="grey" zPosition="1">
+      <convert type="EventTime">Progress</convert>
+    </widget>
+    <widget source="ServiceEvent" render="Label" position="323,606" size="62,22" transparent="1" foregroundColor="secondFG" font="Regular;19" zPosition="1">
+      <convert type="EventTime">EndTime</convert>
+      <convert type="ClockToText" />
+    </widget>
+    <widget source="session.Event_Next" render="Label" position="679,588" size="599,36" backgroundColor="darkgrey" transparent="1" zPosition="1" foregroundColor="yellow" noWrap="1" font="Regular;22">
+      <convert type="EventName">NameNext</convert>
+    </widget>
+    <ePixmap alphatest="blend" pixmap="Satdreamgr-HD/logos/satdreamgr.png" position="958,528" size="199,38" zPosition="1" />
+    <widget name="list" position="51,110" size="785,450" scrollbarMode="showOnDemand" foregroundColorServiceNotAvail="grey2" serviceItemHeight="30" serviceNumberFont="Regular;19" serviceNameFont="Regular;25" serviceInfoFont="Regular;21" colorServiceDescription="#11aaff" colorServiceDescriptionSelected="yellow" colorEventProgressbar="#11aaff" colorEventProgressbarSelected="yellow" colorEventProgressbarBorder="grey" colorEventProgressbarBorderSelected="white" transparent="1" selectionPixmap="Satdreamgr-HD/sel/sel.png" />
+  </screen>
   <!-- Simple channelselection -->
   <screen name="SimpleChannelSelection" position="0,0" size="1280,720" title="Channel Selection" flags="wfNoBorder">
     <panel name="PigTemplate" />
@@ -4297,13 +4290,27 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
     <widget name="AboutScrollLabel" font="Regular;22" position="540,110" size="700,500" zPosition="2" halign="left" transparent="1" />
   </screen>
   <screen name="SDGBackup" position="0, 0" flags="wfNoBorder" transparent="0" backgroundColor="transpBlack" size="1280, 720">
+    <panel name="PigTemplate" />
+    <ePixmap alphatest="blend" pixmap="Satdreamgr-HD/menu/plugin.png" position="180,370" size="198,250" zPosition="1" />
+    <widget name="menu" itemHeight="35" font="Regular;22" position="540,110" size="700,385" selectionPixmap="Satdreamgr-HD/sel/sel.png" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />
+    <eLabel text="SDGBackup Dreambox Enigma2" position="75,30" size="855,55" backgroundColor="secondBG" transparent="1" zPosition="1" font="Regular;24" valign="center" halign="left" />
+    <ePixmap pixmap="Satdreamgr-HD/buttons/red.png" position="145,640" size="30,30" />
+    <eLabel position="188,640" size="150,32" font="Regular;22" text="Exit" transparent="1" zPosition="2" backgroundColor="background" />
+    <ePixmap pixmap="Satdreamgr-HD/buttons/green.png" position="420,640" size="30,30" transparent="0" />
+    <eLabel position="460,640" size="220,32" font="Regular;22" text="OK" transparent="1" zPosition="2" backgroundColor="background" />
+  </screen>
+  <screen name="HotkeySetup" position="0, 0" flags="wfNoBorders" transparent="0" backgroundColor="transparent" size="1280, 720">
   <panel name="PigTemplate" />
-  <ePixmap alphatest="blend" pixmap="Satdreamgr-HD/menu/plugin.png" position="180,370" size="198,250" zPosition="1" />
-  <widget name="menu" itemHeight="35" font="Regular;22" position="540,110" size="700,385" selectionPixmap="Satdreamgr-HD/sel/sel.png" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />
-  <eLabel text="SDGBackup Dreambox Enigma2" position="75,30" size="855,55" backgroundColor="secondBG" transparent="1" zPosition="1" font="Regular;24" valign="center" halign="left" />
-  <ePixmap pixmap="Satdreamgr-HD/buttons/red.png" position="145,640" size="30,30" />
-  <eLabel position="188,640" size="150,32" font="Regular;22" text="Exit" transparent="1" zPosition="2" backgroundColor="background" />
-  <ePixmap pixmap="Satdreamgr-HD/buttons/green.png" position="420,640" size="30,30" transparent="0" />
-  <eLabel position="460,640" size="220,32" font="Regular;22" text="OK" transparent="1" zPosition="2" backgroundColor="background" />
+  <widget name="list" position="530,110" size="710,500" font="Regular;18" transparent="1" scrollbarMode="showOnDemand" selectionPixmap="Satdreamgr-HD/sel/sel.png" />
+
+   <widget name="choosen" position="101,364" size="383,200" scrollbarMode="showOnDemand" transparent="1" />
+
+
+
+
+  <ePixmap pixmap="Satdreamgr-HD/buttons/red.png" position="145,645" size="30,30" />
+  <ePixmap pixmap="Satdreamgr-HD/buttons/green.png" position="420,645" size="30,30" transparent="0" />
+  <widget name="key_red" position="185,645" size="220,60" backgroundColor="black" zPosition="1" transparent="1" font="Regular;23" halign="left" valign="top" />
+  <widget name="key_green" position="460,645" size="700,60" backgroundColor="black" zPosition="1" transparent="1" font="Regular;23" halign="left" valign="top" />
 </screen>
 </skin>
