@@ -305,7 +305,7 @@
     <panel name="KeyInfoTemplate" />
   </screen>
   <!-- Templates -->
-  <screen name="PlayerTemplate" position="0,0" size="1280,720" flags="wfNoBorder">
+  <screen name="PlayerTemplate">
     <widget source="session.CurrentService" render="Label" position="224,4" size="832,52" backgroundColor="transparent" zPosition="1" foregroundColor="foreground" borderWidth="2" font="Regular;24" borderColor="black" valign="center" halign="center">
       <convert type="ServiceName">Name</convert>
     </widget>
@@ -327,10 +327,28 @@
       <convert type="ClockToText">Format:%-H:%M</convert>
     </widget>
     <widget source="session.CurrentService" render="Label" position="128,73" size="145,21" zPosition="2" backgroundColor="transparent" foregroundColor="foreground" font="Regular;20" borderWidth="2" valign="top" halign="left">
-      <convert type="sdgExtraInfo">ResolutionString</convert>
+      <convert type="PliExtraInfo">ResolutionString</convert>
     </widget>
+    <eLabel position="128,70" size="150,130" backgroundColor="transparent" borderWidth="2" font="Regular;25" borderColor="black" halign="left" text="&gt;" zPosition="4" />
   </screen>
   <!-- Templates -->
+  <!-- Templates -->
+  <screen name="TopTemplateA" position="0,0" size="1280,720" transparent="1" backgroundColor="transparent" flags="wfNoBorder">
+    <widget source="global.CurrentTime" render="Label" position="1031,55" size="121,36" backgroundColor="secondBG" transparent="1" zPosition="1" font="LCD; 35" halign="right" valign="center">
+      <convert type="ClockToText">Format:%-H:%M</convert>
+    </widget>
+    <widget source="global.CurrentTime" render="Label" position="1155,55" zPosition="1" size="28,22" font="LCD; 20" halign="left" valign="top" transparent="1" backgroundColor="red" foregroundColor="unff0000">
+      <convert type="ClockToText">Format::%S</convert>
+    </widget>
+    <widget source="global.CurrentTime" render="Label" position="973,28" size="263,28" backgroundColor="secondBG" transparent="1" zPosition="1" font="Regular; 20" valign="center" halign="center">
+      <convert type="ClockToText">Format:%a. %d.%b. %Y</convert>
+    </widget>
+    <ePixmap pixmap="Satdreamgr-HD/menu.png" position="0,0" size="1280,720" zPosition="-10" transparent="1" />
+    <eLabel position="84,107" zPosition="1" size="419,244" backgroundColor="un254f7497" foregroundColor="secondBG" />
+    <eLabel position="85,108" zPosition="1" size="416,242" backgroundColor="black" />
+    <widget backgroundColor="transparent" position="89,112" render="Pig" size="410,235" source="session.VideoPicture" zPosition="2" />
+    <ePixmap pixmap="Satdreamgr-HD/logos/satdreamgr.png" position="177,574" size="200,43" alphatest="blend" transparent="0" zPosition="5" />
+  </screen>
   <screen name="TopTemplate" position="0,0" size="1280,720" transparent="1" backgroundColor="transparent" flags="wfNoBorder">
     <widget source="Title" render="Label" position="75,30" size="850,55" backgroundColor="secondBG" transparent="1" zPosition="1" font="Regular;24" valign="center" halign="left" />
     <widget source="global.CurrentTime" render="Label" position="1031,55" size="121,36" backgroundColor="secondBG" transparent="1" zPosition="1" font="LCD; 35" halign="right" valign="center">
@@ -1201,11 +1219,9 @@
     <widget name="key_blue" position="440,40" zPosition="4" size="160,20" font="Regular;14" valign="center" halign="left" backgroundColor="un232323" foregroundColor="unffffff" transparent="1" />
   </screen>
   <!-- Timeshift state -->
-  <screen name="TimeshiftState" position="76,197" zPosition="0" size="150,65" backgroundColor="transparent" flags="wfNoBorder">
-    <widget name="state" position="0,0" size="150,30" backgroundColor="transparent" borderWidth="2" font="Regular;25" borderColor="black" halign="left" />
-    <widget source="session.CurrentService" render="Label" position="1,35" size="150,30" backgroundColor="transparent" borderWidth="2" font="Regular;25" halign="left">
-      <convert type="ServicePosition">Remaining</convert>
-    </widget>
+  <screen name="TimeshiftState" position="0,140" zPosition="0" size="1280,317" backgroundColor="transparent" flags="wfNoBorder">
+    <panel name="PlayerTemplate" />
+    <widget name="state" position="129,-44" size="150,30" backgroundColor="transparent" borderWidth="2" font="Regular;25" borderColor="black" halign="left" />
   </screen>
   <!-- Radio Stuff -->
   <screen flags="wfNoBorder" name="ChannelSelectionRadio" position="0,0" size="1280,502" title="Channel Selection">
@@ -2352,7 +2368,7 @@
   </screen>
   <!-- Nim selection Select a tuner-->
   <screen name="NimSelection" position="0,0" size="1280,720" flags="wfNoBorder">
-    <panel name="PigTemplate" />
+    <panel name="TopTemplateA" />
     <ePixmap alphatest="blend" pixmap="Satdreamgr-HD/menu/system_selection.png" position="180,370" size="199,250" zPosition="1" />
     <eLabel text="Select a tuner" position="57,27" size="1085,50" backgroundColor="secondBG" transparent="1" zPosition="1" font="Regular;24" valign="center" halign="left" />
     <widget source="nimlist" render="Listbox" position="530,110" size="710,500" transparent="1" scrollbarMode="showOnDemand" selectionPixmap="Satdreamgr-HD/sel/sel80.png">
@@ -2379,7 +2395,7 @@
   </screen>
   <!-- Nim setup -Reception settings-->
   <screen name="NimSetup" position="0,0" size="1280,720" flags="wfNoBorder">
-    <panel name="PigTemplate" />
+    <panel name="TopTemplateA" />
     <ePixmap alphatest="blend" pixmap="Satdreamgr-HD/menu/system_selection.png" position="180,370" size="199,250" zPosition="1" />
     <eLabel text="Reception settings" position="57,25" size="1085,52" backgroundColor="secondBG" transparent="1" zPosition="1" font="Regular;24" valign="center" halign="left" />
     <panel name="ButtonRed" />
@@ -4257,17 +4273,12 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
     <eLabel position="460,640" size="220,32" font="Regular;22" text="OK" transparent="1" zPosition="2" backgroundColor="background" />
   </screen>
   <screen name="HotkeySetup" position="0, 0" flags="wfNoBorders" transparent="0" backgroundColor="transparent" size="1280, 720">
-  <panel name="PigTemplate" />
-  <widget name="list" position="530,110" size="710,500" font="Regular;18" transparent="1" scrollbarMode="showOnDemand" selectionPixmap="Satdreamgr-HD/sel/sel.png" />
-
-   <widget name="choosen" position="101,364" size="383,200" scrollbarMode="showOnDemand" transparent="1" />
-
-
-
-
-  <ePixmap pixmap="Satdreamgr-HD/buttons/red.png" position="145,645" size="30,30" />
-  <ePixmap pixmap="Satdreamgr-HD/buttons/green.png" position="420,645" size="30,30" transparent="0" />
-  <widget name="key_red" position="185,645" size="220,60" backgroundColor="black" zPosition="1" transparent="1" font="Regular;23" halign="left" valign="top" />
-  <widget name="key_green" position="460,645" size="700,60" backgroundColor="black" zPosition="1" transparent="1" font="Regular;23" halign="left" valign="top" />
-</screen>
+    <panel name="PigTemplate" />
+    <widget name="list" position="530,110" size="710,500" font="Regular;18" transparent="1" scrollbarMode="showOnDemand" selectionPixmap="Satdreamgr-HD/sel/sel.png" />
+    <widget name="choosen" position="101,364" size="383,200" scrollbarMode="showOnDemand" transparent="1" />
+    <ePixmap pixmap="Satdreamgr-HD/buttons/red.png" position="145,645" size="30,30" />
+    <ePixmap pixmap="Satdreamgr-HD/buttons/green.png" position="420,645" size="30,30" transparent="0" />
+    <widget name="key_red" position="185,645" size="220,60" backgroundColor="black" zPosition="1" transparent="1" font="Regular;23" halign="left" valign="top" />
+    <widget name="key_green" position="460,645" size="700,60" backgroundColor="black" zPosition="1" transparent="1" font="Regular;23" halign="left" valign="top" />
+  </screen>
 </skin>
