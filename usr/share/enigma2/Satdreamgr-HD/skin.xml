@@ -4252,16 +4252,6 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
     <widget name="menu" itemHeight="35" font="Regular;22" position="530,110" size="710,500" scrollbarMode="showOnDemand" selectionPixmap="Satdreamgr-HD/sel/sel.png" transparent="1" zPosition="9" />
   </screen>
   <!-- Menus panel+ edd-->
-  <screen name="FlashImageConfig" position="0,0" flags="wfNoBorders" transparent="0" size="1280,722">
-    <panel name="PigTemplate" />
-    <widget source="curdir" render="Label" position="101,364" size="383,200" valign="top" halign="left" zPosition="4" foregroundColor="un11aaff" font="Regular;22" backgroundColor="background" transparent="1" noWrap="1" />
-    <widget name="filelist" position="540,110" size="700,460" selectionPixmap="Satdreamgr-HD/sel/sel.png" scrollbarMode="showOnDemand" transparent="1" />
-  </screen>
-  <screen name="WhatisNewInfo" position="0, 0" flags="wfNoBorder" transparent="0" backgroundColor="transparent" size="1280, 720" borderWidth="0" borderColor="transpBlack">
-    <panel name="PigTemplate" />
-    <panel name="ButtonTemplate1" />
-    <widget name="AboutScrollLabel" font="Regular;22" position="540,110" size="700,500" zPosition="2" halign="left" transparent="1" />
-  </screen>
   <screen name="SDGBackup" position="0, 0" flags="wfNoBorder" transparent="0" backgroundColor="transpBlack" size="1280, 720">
     <panel name="PigTemplate" />
     <ePixmap alphatest="blend" pixmap="Satdreamgr-HD/menu/plugin.png" position="180,370" size="198,250" zPosition="1" />
