@@ -454,7 +454,7 @@
   <!-- InfoBars -->
   <!-- Infobar Template -->
   <screen name="InfoBar" position="0,0" size="1280,720" backgroundColor="transparent" flags="wfNoBorder">
-    <ePixmap pixmap="Satdreamgr-HD/haut.png" position="23,20" size="1232,89" zPosition="-1" alphatest="off" transparent="1" />
+    <ePixmap pixmap="Satdreamgr-HD/haut.png" position="23,20" size="1232,89" zPosition="-1" alphatest="blend" transparent="1" />
     <ePixmap pixmap="Satdreamgr-HD/border/smallshadowline.png" position="50,61" size="1180,1" zPosition="1" alphatest="blend" />
     <ePixmap pixmap="Satdreamgr-HD/border/smallshadowline.png" position="50,543" size="1180,1" zPosition="1" alphatest="blend" />
     <ePixmap pixmap="Satdreamgr-HD/border/smallshadowline.png" position="50,632" size="1180,1" zPosition="1" alphatest="blend" />
@@ -650,7 +650,7 @@
   </screen>
   <!-- second infobar -->
   <screen name="SecondInfoBar" position="0,0" size="1280,720" backgroundColor="transparent" flags="wfNoBorder">
-    <ePixmap pixmap="Satdreamgr-HD/haut.png" position="24,20" size="1231,87" zPosition="-1" alphatest="off" transparent="1" />
+    <ePixmap pixmap="Satdreamgr-HD/haut.png" position="24,20" size="1231,87" zPosition="-1" alphatest="blend" transparent="1" />
     <ePixmap pixmap="Satdreamgr-HD/border/smallshadowline.png" position="50,61" size="1180,1" zPosition="1" />
     <ePixmap pixmap="Satdreamgr-HD/border/smallshadowline.png" position="50,543" size="1180,1" zPosition="1" />
     <ePixmap pixmap="Satdreamgr-HD/border/smallshadowline.png" position="50,632" size="1180,1" zPosition="1" />
